@@ -57,3 +57,6 @@ typings/
 # dotenv environment variables file
 .env
 
+# do not include build file in git
+build
+
