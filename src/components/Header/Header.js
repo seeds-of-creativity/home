@@ -17,14 +17,9 @@ function Header() {
   return (
     <div className={s.root}>
       <div className={s.container}>
-        <Navigation className={s.nav} />
-        <Link className={s.brand} to="/">
-          <img src={require('./logo-small.png')} width="38" height="38" alt="React" />
-          <span className={s.brandTxt}>Your Company</span>
-        </Link>
         <div className={s.banner}>
-          <h1 className={s.bannerTitle}>React</h1>
-          <p className={s.bannerDesc}>Complex web apps made easy</p>
+          <h1 className={s.bannerTitle}>Seeds of Creativity</h1>
+          <p className={s.bannerDesc}>Dedicated to solidarity and empowerment</p>
         </div>
       </div>
     </div>
