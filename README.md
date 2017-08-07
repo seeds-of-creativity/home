@@ -1,3 +1,5 @@
+[![Build Status](https://travis-ci.org/seeds-of-creativity/home.svg?branch=master)](https://travis-ci.org/seeds-of-creativity/home)
+
 # home
 Home page for the non-profit. 
 
