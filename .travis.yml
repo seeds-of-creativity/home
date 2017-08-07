@@ -1,12 +1,15 @@
 sudo: false
 language: node_js
 node_js:
-  - '5'
+- '5'
 env:
-  - CXX=g++-4.8
+- CXX=g++-4.8
 addons:
   apt:
     sources:
-      - ubuntu-toolchain-r-test
+    - ubuntu-toolchain-r-test
     packages:
-      - g++-4.8
+    - g++-4.8
+notifications:
+  slack:
+    secure: R5ZWtqkVdlaPPbvYZUYTsCbsnhD0fRZvTXDXo53uJcy5TA69xiKrWSwVYrNtIWQiONfNfBugT8HYbcYB0Hh5uVhrTFW64pi+liCGXAZ6mtIsTIbPlFAY/i6oxJ4KecVQXZ6r2fyK3bN9SFDMp/hS0XTCVQfZNZ9uIOF+741MsBQfO50LKsTaYQVuNaEksY2iSy04lHrij3tYFODK9vTF1XOYZ4nz/A+J3TV3LHFDGUeVa6zo+hL4yEAVqgP2+ynGPzEV4H3kORJpnhKjzfgqLCDiRbXFEn9g2scvaw+a01zDX1PKxNZ0CV/4YlLfFKR3C4RjYXtUlTunZGKhMp6xSPbh9ecQA/1LjEX31KC3CXKsqUfuIlAEJo6nj48lXBcelu/53GhhF2kx9sRrARPZcOe2nMTjsia+bAmva6aFLBPAUP/xAWj4Q7zbq/fvrEK1dXocXW/XjDpesqAFc+OfQz5YLKD4XkMqxtb269Oq9NljuVNWcpE7IYxD22MHMF9whuCBDiefbvoUK3GUzxtkLbuT5vw6BqJtDuL9MCUbSAUCNcaullliYm7BgxoCzntS+EcnQU3ycaAxIBLQtkxE7jTQPF/FQJA1lE7WAJO65r0HW5nTb4LOkRgo5NSmVdMNCA5abeGYcUqypmfvGcQF7G22eKfr/9Eq02D32AyLLw4=
