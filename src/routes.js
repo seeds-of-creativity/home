@@ -16,7 +16,7 @@ import NotFoundPage from './components/NotFoundPage';
 import ErrorPage from './components/ErrorPage';
 
 const routes = [
-  require('./routes/home')
+  require('./routes/home'),
 ];
 
 const router = new Router(on => {
