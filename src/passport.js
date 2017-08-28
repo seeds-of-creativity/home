@@ -16,7 +16,7 @@
 import passport from 'passport';
 import { Strategy as FacebookStrategy } from 'passport-facebook';
 import { User, UserLogin, UserClaim, UserProfile } from './data/models';
-import config from './config';
+import { auth } from './config';
 
 /**
  * Sign in with Facebook.
@@ -24,8 +24,8 @@ import config from './config';
 passport.use(
   new FacebookStrategy(
     {
-      clientID: config.auth.facebook.id,
-      clientSecret: config.auth.facebook.secret,
+      clientID: auth.facebook.id,
+      clientSecret: auth.facebook.secret,
       callbackURL: '/login/facebook/return',
       profileFields: [
         'displayName',
