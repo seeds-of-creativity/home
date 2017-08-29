@@ -14,7 +14,6 @@ import s from './NotFoundPage.scss';
 const title = 'Page Not Found';
 
 class NotFoundPage extends Component {
-
   static contextTypes = {
     onSetTitle: PropTypes.func.isRequired,
     onPageNotFound: PropTypes.func.isRequired,
@@ -33,7 +32,6 @@ class NotFoundPage extends Component {
       </div>
     );
   }
-
 }
 
 export default withStyles(NotFoundPage, s);

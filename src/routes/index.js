@@ -9,6 +9,16 @@
 
 /* eslint-disable global-require */
 
+// Routes to load
+import home from /* webpackChunkName: 'home' */ './home';
+import contact from /* webpackChunkName: 'contact' */ './contact';
+import login from /* webpackChunkName: 'login' */ './login';
+import register from /* webpackChunkName: 'register' */ './register';
+import about from /* webpackChunkName: 'about' */ './about';
+import privacy from /* webpackChunkName: 'privacy' */ './privacy';
+import admin from /* webpackChunkName: 'admin' */ './admin';
+import notFound from /* webpackChunkName: 'not-found' */ './not-found';
+
 // The top-level (parent) route
 const routes = {
   path: '/',
@@ -17,37 +27,37 @@ const routes = {
   children: [
     {
       path: '/',
-      load: () => import(/* webpackChunkName: 'home' */ './home'),
+      load: () => home,
     },
     {
       path: '/contact',
-      load: () => import(/* webpackChunkName: 'contact' */ './contact'),
+      load: () => contact,
     },
     {
       path: '/login',
-      load: () => import(/* webpackChunkName: 'login' */ './login'),
+      load: () => login,
     },
     {
       path: '/register',
-      load: () => import(/* webpackChunkName: 'register' */ './register'),
+      load: () => register,
     },
     {
       path: '/about',
-      load: () => import(/* webpackChunkName: 'about' */ './about'),
+      load: () => about,
     },
     {
       path: '/privacy',
-      load: () => import(/* webpackChunkName: 'privacy' */ './privacy'),
+      load: () => privacy,
     },
     {
       path: '/admin',
-      load: () => import(/* webpackChunkName: 'admin' */ './admin'),
+      load: () => admin,
     },
 
     // Wildcard routes, e.g. { path: '*', ... } (must go last)
     {
       path: '*',
-      load: () => import(/* webpackChunkName: 'not-found' */ './not-found'),
+      load: () => notFound,
     },
   ],
 

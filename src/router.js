@@ -7,7 +7,7 @@
  * LICENSE.txt file in the root directory of this source tree.
  */
 
-import Router from 'universal-router';
+import Router from 'react-routing/src/Router';
 import routes from './routes';
 
 export default new Router(routes, {

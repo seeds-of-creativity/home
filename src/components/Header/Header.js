@@ -17,7 +17,9 @@ function Header() {
       <div className={s.container}>
         <div className={s.banner}>
           <h1 className={s.bannerTitle}>Seeds of Creativity</h1>
-          <p className={s.bannerDesc}>Dedicated to solidarity and empowerment</p>
+          <p className={s.bannerDesc}>
+            Dedicated to solidarity and empowerment
+          </p>
         </div>
       </div>
     </div>

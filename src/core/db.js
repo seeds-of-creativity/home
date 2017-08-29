@@ -58,24 +58,27 @@ AsyncClient.prototype.end = function end() {
  * Promise-based wrapper for pg.connect()
  * https://github.com/brianc/node-postgres/wiki/pg
  */
-db.connect = (connect => callback => new Promise((resolve, reject) => {
-  connect.call(db, databaseUrl, (err, client, done) => {
-    if (err) {
-      if (client) {
-        done(client);
-      }
+db.connect = (connect => callback =>
+  new Promise((resolve, reject) => {
+    connect.call(db, databaseUrl, (err, client, done) => {
+      if (err) {
+        if (client) {
+          done(client);
+        }
 
-      reject(err);
-    } else {
-      callback(new AsyncClient(client)).then(() => {
-        done();
-        resolve();
-      }).catch(error => {
-        done(client);
-        reject(error);
-      });
-    }
-  });
-}))(db.connect);
+        reject(err);
+      } else {
+        callback(new AsyncClient(client))
+          .then(() => {
+            done();
+            resolve();
+          })
+          .catch(error => {
+            done(client);
+            reject(error);
+          });
+      }
+    });
+  }))(db.connect);
 
 export default db;

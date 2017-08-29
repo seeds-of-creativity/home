@@ -12,8 +12,9 @@ import fetch from '../../core/fetch';
 import NewsItemType from '../types/NewsItemType';
 
 // React.js News Feed (RSS)
-const url = 'http://ajax.googleapis.com/ajax/services/feed/load' +
-            '?v=1.0&num=10&q=https://reactjsnews.com/feed.xml';
+const url =
+  'http://ajax.googleapis.com/ajax/services/feed/load' +
+  '?v=1.0&num=10&q=https://reactjsnews.com/feed.xml';
 
 let items = [];
 let lastFetchTask;
@@ -26,7 +27,7 @@ const news = {
       return lastFetchTask;
     }
 
-    if ((new Date() - lastFetchTime) > 1000 * 3 /* 10 mins */) {
+    if (new Date() - lastFetchTime > 1000 * 3 /* 10 mins */) {
       lastFetchTime = new Date();
       lastFetchTask = fetch(url)
         .then(response => response.json())

@@ -10,6 +10,7 @@
 import DataType from 'sequelize';
 import Model from '../sequelize';
 
+/* eslint-disable new-cap */
 const UserLogin = Model.define('UserLogin', {
   name: {
     type: DataType.STRING(50),

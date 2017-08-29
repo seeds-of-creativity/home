@@ -1,16 +1,22 @@
+/* eslint-disable import/imports-first */
 jest.unmock('../App');
 
-import App from '../App';
 import React from 'react';
-import { shallow } from 'enzyme';
+import ShallowRenderer from 'react-test-renderer/shallow';
+
+import App from '../App';
 
 describe('App', () => {
   it('renders children correctly', () => {
-    const wrapper = shallow(
+    // in your test:
+    const renderer = new ShallowRenderer();
+    renderer.render(
       <App context={{ insertCss: () => {} }}>
         <div className="child" />
-      </App>
+      </App>,
     );
-    expect(wrapper.contains(<div className="child" />)).toBe(true);
+    const result = renderer.getRenderedOutput();
+
+    expect(result.contains(<div className="child" />)).toBe(true);
   });
 });

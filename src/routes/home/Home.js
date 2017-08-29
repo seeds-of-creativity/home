@@ -16,7 +16,12 @@ function Home() {
     <div className={s.root}>
       <div className={s.container}>
         <h1 className={s.title}>Coming Soon</h1>
-        <p>In the meantime visit our <a href="https://www.facebook.com/seedsofcreativitycommunity/">Facebook page</a></p>
+        <p>
+          In the meantime visit our
+          <a href="https://www.facebook.com/seedsofcreativitycommunity/">
+            Facebook page
+          </a>
+        </p>
       </div>
     </div>
   );

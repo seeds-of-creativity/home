@@ -16,7 +16,10 @@ let viewport = { width: 1366, height: 768 }; // Default size for server-side ren
 const RESIZE_EVENT = 'resize';
 
 function handleWindowResize() {
-  if (viewport.width !== window.innerWidth || viewport.height !== window.innerHeight) {
+  if (
+    viewport.width !== window.innerWidth ||
+    viewport.height !== window.innerHeight
+  ) {
     viewport = { width: window.innerWidth, height: window.innerHeight };
     EE.emit(RESIZE_EVENT, viewport);
   }
@@ -24,12 +27,13 @@ function handleWindowResize() {
 
 function withViewport(ComposedComponent) {
   return class WithViewport extends Component {
-
     constructor() {
       super();
 
       this.state = {
-        viewport: canUseDOM ? { width: window.innerWidth, height: window.innerHeight } : viewport,
+        viewport: canUseDOM
+          ? { width: window.innerWidth, height: window.innerHeight }
+          : viewport,
       };
     }
 
@@ -53,13 +57,14 @@ function withViewport(ComposedComponent) {
     }
 
     render() {
-      return <ComposedComponent {...this.props} viewport={this.state.viewport} />;
+      return (
+        <ComposedComponent {...this.props} viewport={this.state.viewport} />
+      );
     }
 
     handleResize(value) {
       this.setState({ viewport: value }); // eslint-disable-line react/no-set-state
     }
-
   };
 }
 

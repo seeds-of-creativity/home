@@ -14,7 +14,6 @@ import s from './ErrorPage.scss';
 const title = 'Error';
 
 class ErrorPage extends Component {
-
   static contextTypes = {
     onSetTitle: PropTypes.func.isRequired,
     onPageNotFound: PropTypes.func.isRequired,
@@ -32,7 +31,6 @@ class ErrorPage extends Component {
       </div>
     );
   }
-
 }
 
 export default withStyles(ErrorPage, s);

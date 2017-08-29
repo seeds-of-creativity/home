@@ -15,9 +15,8 @@ import ContentPage from './components/ContentPage';
 import NotFoundPage from './components/NotFoundPage';
 import ErrorPage from './components/ErrorPage';
 
-const routes = [
-  require('./routes/home'),
-];
+/* eslint-disable global-require */
+const routes = [require('./routes/home')];
 
 const router = new Router(on => {
   on('*', async (state, next) => {
@@ -29,16 +28,25 @@ const router = new Router(on => {
     on(route.path, route.action);
   });
 
-  on('*', async (state) => {
+  on('*', async state => {
     const query = `/graphql?query={content(path:"${state.path}"){path,title,content,component}}`;
     const response = await fetch(query);
     const { data } = await response.json();
     return data && data.content && <ContentPage {...data.content} />;
   });
 
-  on('error', (state, error) => state.statusCode === 404 ?
-    <App context={state.context} error={error}><NotFoundPage /></App> :
-    <App context={state.context} error={error}><ErrorPage /></App>
+  on(
+    'error',
+    (state, error) =>
+      state.statusCode === 404 ? (
+        <App context={state.context} error={error}>
+          <NotFoundPage />
+        </App>
+      ) : (
+        <App context={state.context} error={error}>
+          <ErrorPage />
+        </App>
+      ),
   );
 });
 
