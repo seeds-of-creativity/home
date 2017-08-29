@@ -8,9 +8,9 @@
  */
 
 import Sequelize from 'sequelize';
-import config from '../config';
+import { databaseUrl } from '../config';
 
-const sequelize = new Sequelize(config.databaseUrl, {
+const sequelize = new Sequelize(databaseUrl, {
   define: {
     freezeTableName: true,
   },

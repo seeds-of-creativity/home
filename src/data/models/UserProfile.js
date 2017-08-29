@@ -10,6 +10,7 @@
 import DataType from 'sequelize';
 import Model from '../sequelize';
 
+/* eslint-disable new-cap */
 const UserProfile = Model.define('UserProfile', {
   userId: {
     type: DataType.UUID,
