@@ -14,6 +14,8 @@ import Router from './routes';
 import Location from './core/Location';
 import { addEventListener, removeEventListener } from './core/DOMUtils';
 
+/* eslint-disable no-underscore-dangle */
+
 let cssContainer = document.getElementById('css');
 const appContainer = document.getElementById('app');
 const context = {
@@ -23,7 +25,7 @@ const context = {
     // Remove and create a new <meta /> tag in order to make it work
     // with bookmarks in Safari
     const elements = document.getElementsByTagName('meta');
-    Array.from(elements).forEach((element) => {
+    Array.from(elements).forEach(element => {
       if (element.getAttribute('name') === name) {
         element.parentNode.removeChild(element);
       }
@@ -31,9 +33,7 @@ const context = {
     const meta = document.createElement('meta');
     meta.setAttribute('name', name);
     meta.setAttribute('content', content);
-    document
-      .getElementsByTagName('head')[0]
-      .appendChild(meta);
+    document.getElementsByTagName('head')[0].appendChild(meta);
   },
 };
 
@@ -84,17 +84,19 @@ function run() {
 
   // Save the page scroll position into the current location's state
   const supportPageOffset = window.pageXOffset !== undefined;
-  const isCSS1Compat = ((document.compatMode || '') === 'CSS1Compat');
+  const isCSS1Compat = (document.compatMode || '') === 'CSS1Compat';
   const setPageOffset = () => {
     currentLocation.state = currentLocation.state || Object.create(null);
     if (supportPageOffset) {
       currentLocation.state.scrollX = window.pageXOffset;
       currentLocation.state.scrollY = window.pageYOffset;
     } else {
-      currentLocation.state.scrollX = isCSS1Compat ?
-        document.documentElement.scrollLeft : document.body.scrollLeft;
-      currentLocation.state.scrollY = isCSS1Compat ?
-        document.documentElement.scrollTop : document.body.scrollTop;
+      currentLocation.state.scrollX = isCSS1Compat
+        ? document.documentElement.scrollLeft
+        : document.body.scrollLeft;
+      currentLocation.state.scrollY = isCSS1Compat
+        ? document.documentElement.scrollTop
+        : document.body.scrollTop;
     }
   };
 
@@ -106,7 +108,10 @@ function run() {
 }
 
 // Run the application when both DOM is ready and page content is loaded
-if (['complete', 'loaded', 'interactive'].includes(document.readyState) && document.body) {
+if (
+  ['complete', 'loaded', 'interactive'].includes(document.readyState) &&
+  document.body
+) {
   run();
 } else {
   document.addEventListener('DOMContentLoaded', run, false);

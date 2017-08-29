@@ -11,9 +11,10 @@ import React, { Component, PropTypes } from 'react';
 import withStyles from 'isomorphic-style-loader/lib/withStyles';
 import s from './TextBox.scss';
 
+const REF = 'input';
+
 @withStyles(s)
 class TextBox extends Component {
-
   static propTypes = {
     maxLines: PropTypes.number,
   };
@@ -25,26 +26,20 @@ class TextBox extends Component {
   render() {
     return (
       <div className={s.root}>
-        {
-          this.props.maxLines > 1 ?
-            <textarea
-              {...this.props}
-              className={s.input}
-              ref="input"
-              key="input"
-              rows={this.props.maxLines}
-            /> :
-            <input
-              {...this.props}
-              className={s.input}
-              ref="input"
-              key="input"
-            />
-        }
+        {this.props.maxLines > 1 ? (
+          <textarea
+            {...this.props}
+            className={s.input}
+            ref={REF}
+            key={REF}
+            rows={this.props.maxLines}
+          />
+        ) : (
+          <input {...this.props} className={s.input} ref={REF} key={REF} />
+        )}
       </div>
     );
   }
-
 }
 
 export default TextBox;

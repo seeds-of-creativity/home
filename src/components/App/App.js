@@ -13,7 +13,6 @@ import s from './App.scss';
 import Header from '../Header';
 
 class App extends Component {
-
   static propTypes = {
     context: PropTypes.shape({
       insertCss: PropTypes.func,
@@ -57,9 +56,10 @@ class App extends Component {
         <Header />
         {this.props.children}
       </div>
-    ) : this.props.children;
+    ) : (
+      this.props.children
+    );
   }
-
 }
 
 export default App;
